@@ -1,14 +1,12 @@
 package com.alpergayretoglu.todo_app.user;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
 @Table(name = "users") // since the name "user" is reserved in PostgreSQL, we must use the name "users"
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -17,7 +15,7 @@ public class User {
     @SequenceGenerator(
             name = "user_sequence",
             sequenceName = "user_sequence",
-            allocationSize = 1 // increment
+            allocationSize = 1 // auto increment
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
