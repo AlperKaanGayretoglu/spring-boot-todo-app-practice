@@ -60,7 +60,7 @@ public class UserController {
 
     @PutMapping("{userId}/task")
     public void addTask(@PathVariable("userId") Long userId,
-                        @RequestParam Long taskIndex) { // TODO: Find a better way
+                        @RequestParam Long taskIndex) { // TODO: Find a better way to do this
         userService.giveTask(userId, taskIndex);
     }
 
