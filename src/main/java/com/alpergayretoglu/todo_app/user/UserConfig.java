@@ -10,7 +10,7 @@ import java.util.List;
 public class UserConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository repository) {
+    CommandLineRunner initialUsers(UserRepository repository) {
         return args -> {
             User u1 = new User(
                     "Alper",
@@ -20,6 +20,13 @@ public class UserConfig {
             );
 
             User u2 = new User(
+                    "Alper",
+                    "G",
+                    "alpergu@gmail.com",
+                    "12345"
+            );
+
+            User u3 = new User(
                     "a",
                     "b",
                     "c@gmail.com",
@@ -27,7 +34,7 @@ public class UserConfig {
             );
 
             repository.saveAll(
-                    List.of(u1, u2)
+                    List.of(u1, u2, u3)
             );
         };
     }

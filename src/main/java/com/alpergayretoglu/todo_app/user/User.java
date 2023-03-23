@@ -1,15 +1,20 @@
 package com.alpergayretoglu.todo_app.user;
 
+import com.alpergayretoglu.todo_app.task.Task;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users") // since the name "user" is reserved in PostgreSQL, we must use the name "users"
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@Builder
 public class User {
     @Id
     @SequenceGenerator(
@@ -26,6 +31,8 @@ public class User {
     private String surname;
     private String email;
     private String password;
+    @OneToMany
+    private List<Task> tasks;
 
     public User(String name, String surname, String email, String password) {
         this.name = name;
